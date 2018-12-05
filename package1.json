@@ -1,0 +1,23 @@
+{
+  "name": "common",
+  "version": "1.0.37",
+  "description": "一些常用的JS方法",
+  "main": "common.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saqqdy/sa-common.git"
+  },
+  "keywords": [
+    "common",
+    "saqqdy"
+  ],
+  "author": "saqqdy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saqqdy/sa-common/issues"
+  },
+  "homepage": "https://github.com/saqqdy/sa-common#readme"
+}
