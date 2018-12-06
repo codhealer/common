@@ -1075,7 +1075,7 @@ var encodeBase64 = function (input) {
   var output = "";
   var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
   var i = 0;
-  input = _utf8_encode(input);
+  input = encodeUtf8(input);
   while (i < input.length) {
     chr1 = input.charCodeAt(i++);
     chr2 = input.charCodeAt(i++);
@@ -1119,7 +1119,7 @@ var decodeBase64 = function (input) {
       output = output + String.fromCharCode(chr3);
     }
   }
-  output = _utf8_decode(output);
+  output = decodeUtf8(output);
   return output;
 };
 
