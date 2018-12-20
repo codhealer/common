@@ -1,6 +1,6 @@
 {
   "name": "sa-common",
-  "version": "1.0.40",
+  "version": "1.0.42",
   "description": "一些常用的JS方法",
   "main": "common.js",
   "directories": {
