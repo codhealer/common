@@ -664,7 +664,7 @@ function stopBubble(e) {
 //   return ret;
 // }
 function getUrlParam(url) {
-  url = (url != "" && typeof url != "undefined") ? url.substr(url.indexOf("?")) : location.href; //获取url中"?"符后的字串
+  url = (url !== "" && typeof url !== "undefined") ? url.substr(url.indexOf("?")).split('#')[0] : location.search; //获取url中"?"符后的字串
   var search = url.substring(url.lastIndexOf("?") + 1);
   var obj = {};
   var reg = /([^?&=]+)=([^?&=]*)/g;
