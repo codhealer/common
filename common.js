@@ -415,6 +415,7 @@ var isDigitals = function(str){
 function getAppVersion(appName, withappstr, userAgent) {
   //console.log(getAppVersion("Chrome"));
   // const userAgent = navigator.userAgent;
+  userAgent = userAgent || navigator.appVersion
   var reg = eval("/" + appName + "\\/([\\d\\.]+)/");
   var isApp = userAgent.includes(appName);
   var ver = userAgent.match(reg, "i");
@@ -444,6 +445,7 @@ function getAppVersion(appName, withappstr, userAgent) {
 //版本号大小对比
 function getIsAppVersionLastest(appName, compareVer, userAgent) {
   //console.log(getIsAppVersionLastest("Chrome","5.1"));
+  userAgent = userAgent || navigator.appVersion
   var basicVer = appName.indexOf(".") > 0 ? appName : getAppVersion(appName, false, userAgent); //兼容getIsAppVersionLastest("1.2.2","1.2.3")直接传入版本号的对比
   // var basicVer = "5.1.";
   if (basicVer === null) {
