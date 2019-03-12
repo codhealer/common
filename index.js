@@ -1,6 +1,11 @@
 
-//判断访问终端
 // "use strict";
+/*
+ * @Author: saqqdy
+ * @Date: 2018-08-18 20:35:04
+ * @Last Modified by: saqqdy.com
+ * @Last Modified time: 2018-08-18 20: 35: 04
+ */
 
 Array.prototype.indexOf = function(obj){
   var result = -1, length = this.length, i = length - 1;
