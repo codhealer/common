@@ -1203,6 +1203,58 @@ var decodeUtf8 = function (utftext) {
   return string;
 }
 
+/*
+* 频率控制 返回函数连续调用时，fn 执行频率限定为每多少时间执行一次
+* @param fn {function}  需要调用的函数
+* @param delay  {number}    延迟时间，单位毫秒
+* @param immediate  {bool} 给 immediate参数传递false 绑定的函数先执行，而不是delay后后执行。
+* @return {function}实际调用函数
+*/
+var throttle = function (fn, delay, immediate, debounce) {
+  var curr = +new Date(), //当前事件
+    last_call = 0,
+    last_exec = 0,
+    timer = null,
+    diff, //时间差
+    context, //上下文
+    args,
+    exec = function () {
+      last_exec = curr
+      fn.apply(context, args)
+    }
+  return function () {
+    curr = +new Date()
+      ; (context = this), (args = arguments), (diff = curr - (debounce ? last_call : last_exec) - delay)
+    clearTimeout(timer)
+    if (debounce) {
+      if (immediate) {
+        timer = setTimeout(exec, delay)
+      } else if (diff >= 0) {
+        exec()
+      }
+    } else {
+      if (diff >= 0) {
+        exec()
+      } else if (immediate) {
+        timer = setTimeout(exec, -diff)
+      }
+    }
+    last_call = curr
+  }
+}
+
+/*
+* 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 delay，fn 才会执行
+* @param fn {function}  要调用的函数
+* @param delay   {number}    空闲时间
+* @param immediate  {bool} 给 immediate参数传递false 绑定的函数先执行，而不是delay后后执行。
+* @return {function}实际调用函数
+*/
+var debounce = function (fn, delay, immediate) {
+  return throttle(fn, delay, immediate, true)
+}
+
+
 //生成二维码
 // var getQrCode = function(obj,url,data,isshort){
 //   //console.log(isshort)
@@ -1397,7 +1449,101 @@ var decodeUtf8 = function (utftext) {
 // // exports.getsec = getsec;
 
 
-module.exports = {
+// module.exports = {
+//   indexOf,
+//   contains,
+//   append,
+//   remove,
+//   //event方法kuozhan
+//   addEvent,
+//   removeEvent,
+//   // handleEvent,
+//   // fixEvent,
+
+//   client,
+//   //扩展trim(),ltrim(),rtrim()去除字符串两端空格
+//   trim,
+//   //去除字符串中间空格
+//   ctrim,
+//   //扩展delHtmlTag()去除HTML标签及标签里面的文字
+//   delHtmlTag,
+//   //去除换行
+//   clearBr,
+//   //去除HTML标签
+//   clearHtml,
+//   //去除HTML标签及空格、换行
+//   clearHtmlNS,
+//   //去除HTML标签及空格（多个空格合并一个）、换行
+//   clearHtmlNS1,
+//   //去除HTML标签及换行
+//   clearHtmlN,
+//   //去除HTML标签保留空格、换行
+//   clearHtmlExpSN,
+//   //去除HTML标签所有属性
+//   clearAttr,
+//   //用~替换= 用^替换& 转码成微信跳转链接
+//   enWxJumpLink,
+//   //用=替换~ 用&替换^ 解码成微信跳转链接
+//   deWxJumpLink,
+//   //获取字符串中的数字
+//   getNumber,
+//   //是否为由数字组成的字符串
+//   isDigitals,
+
+//   pattern,
+//   getAppVersion,
+//   getIsAppVersionLastest,
+//   getScrollPosition,
+//   imgadapt,
+//   imgchoose,
+//   formatTime,
+//   formatTimeStr,
+//   stopDefault,
+//   stopBubble,
+//   getUrlParam,
+//   getParameter,
+//   getDirParam,
+//   getStrParam,
+//   getFileType,
+//   getCHSLength,
+//   cutCHSString,
+//   isExitsFunction,
+//   isExitsVariable,
+//   hasClass,
+//   getStrLen,
+//   cutStrLen,
+//   saWindowHeight,
+//   saWindowWidth,
+
+//   setCache,
+//   getCache,
+//   clearCache,
+//   setSessionStorage,
+//   getSessionStorage,
+//   delSessionStorage,
+//   setLocalStorage,
+//   getLocalStorage,
+//   delLocalStorage,
+//   setCookie,
+//   getCookie,
+//   delCookie,
+//   getsec,
+
+
+//   getRandomNum,
+//   getRandomStr,
+//   getRandomStrWidthSpecialChar,
+
+//   encodeBase64,
+//   decodeBase64,
+//   encodeUtf8,
+//   decodeUtf8,
+//   debounce,
+//   throttle
+
+// }
+
+export default {
   indexOf: indexOf,
   contains: contains,
   append: append,
@@ -1485,6 +1631,8 @@ module.exports = {
   encodeBase64: encodeBase64,
   decodeBase64: decodeBase64,
   encodeUtf8: encodeUtf8,
-  decodeUtf8: decodeUtf8
+  decodeUtf8: decodeUtf8,
+  debounce: debounce,
+  throttle: throttle
 
 }
