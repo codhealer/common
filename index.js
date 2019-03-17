@@ -1,6 +1,6 @@
 
 // "use strict";
-/*
+/**
  * @Author: saqqdy
  * @Date: 2018-08-18 20:35:04
  * @Last Modified by: saqqdy.com
@@ -1203,7 +1203,7 @@ var decodeUtf8 = function (utftext) {
   return string;
 }
 
-/*
+/**
 * 频率控制 返回函数连续调用时，fn 执行频率限定为每多少时间执行一次
 * @param fn {function}  需要调用的函数
 * @param delay  {number}    延迟时间，单位毫秒
@@ -1243,7 +1243,7 @@ var throttle = function (fn, delay, immediate, debounce) {
   }
 }
 
-/*
+/**
 * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 delay，fn 才会执行
 * @param fn {function}  要调用的函数
 * @param delay   {number}    空闲时间
@@ -1312,7 +1312,7 @@ var debounce = function (fn, delay, immediate) {
 //     return client
 // };*/
 //
-// /*
+// /**
 // * 获取APP版本信息
 // * 依赖：userAgent
 // * 参数：
@@ -1331,7 +1331,7 @@ var debounce = function (fn, delay, immediate) {
 // * */
 // exports.getAppVersion = getAppVersion;
 //
-// /*
+// /**
 // * 获取当前APP版本是否大于预定版本
 // * 依赖：[ getAppVersion ]
 // * 参数：
@@ -1349,7 +1349,7 @@ var debounce = function (fn, delay, immediate) {
 // * */
 // exports.getIsAppVersionLastest = getIsAppVersionLastest;
 //
-// /*
+// /**
 // * 扩展图片自动适应多种分辨率small original
 // * 依赖：无
 // * 参数:
@@ -1363,7 +1363,7 @@ var debounce = function (fn, delay, immediate) {
 // // exports.imgadapt = imgadapt(imgurl,size);
 // exports.imgadapt = imgadapt;
 //
-// /*
+// /**
 // * 扩展图片自动适应多种分辨率@2x @3x
 // * 依赖：无
 // * 参数:
