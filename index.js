@@ -1543,7 +1543,7 @@ var debounce = function (fn, delay, immediate) {
 
 // }
 
-export default {
+module.exports = {
   indexOf: indexOf,
   contains: contains,
   append: append,
