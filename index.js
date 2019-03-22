@@ -425,8 +425,8 @@ var isDigitals = function(str){
  */
 function getOsVersion(osName, withosstr, userAgent) {
   userAgent = userAgent || navigator.appVersion
-  var d = ['iPhone', 'iPad', 'iPod', 'iWatch', 'Mac', 'iMac'], name = osName, index = d.indexOf(osName)
-  if (index > -1) {
+  var d = ['iPhone', 'iPad', 'iPod', 'iWatch', 'Mac', 'iMac', 'iOS'], name = osName, index = d.indexOf(osName)
+  if (index > -1 && userAgent.indexOf('like Mac OS X') > -1) {
     name = 'OS'
   }
   var reg = eval("/" + name + "\\s[\\d\\_]+/");
