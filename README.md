@@ -54,6 +54,7 @@ JS常用方法，来自于前端多年经验积累
 38. isDigitals,
 
 39. pattern,
+40. getOsVersion,
 40. getAppVersion,
 41. getIsAppVersionLastest,
 42. getScrollPosition,

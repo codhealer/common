@@ -416,9 +416,39 @@ var isDigitals = function(str){
 //   }
 // }
 
-//获取APP版本号
+/**
+ * 获取手机系统版本
+ * @param osName {String} 系统类型字符串Android、iPod、iWatch或iPhone
+ * @param withosstr {Boolean} 是否需要带上名称
+ * @param userAgent {String} ua，可不传，默认取navigator.appVersion
+ * @return {Boolean/null} null/true/false
+ */
+function getOsVersion(osName, withosstr, userAgent) {
+  userAgent = userAgent || navigator.appVersion
+  var d = ['iPhone', 'iPad', 'iPod', 'iWatch', 'Mac', 'iMac'], name = osName, index = d.indexOf(osName)
+  if (index > -1) {
+    name = 'OS'
+  }
+  var reg = eval("/" + name + "\\s[\\d\\_]+/");
+  var isApp = userAgent.includes(name);
+  var ver = (userAgent.match(reg, "ig") + '').replace(/\s/ig, '/').replace(/_/ig, '.');
+  if (index > -1) {
+    ver = ver.replace(/OS\//ig, osName + '/')
+  }
+  // console.log(userAgent, reg)
+  // console.log(ver)
+  return getAppVersion(osName, withosstr, ver)
+}
+
+/**
+ * 获取APP版本号
+ * @param appName {String} app名称
+ * @param withosstr {Boolean} 是否需要带上名称
+ * @param userAgent {String} ua，可不传，默认取navigator.appVersion
+ * @return {Boolean/null} null/true/false
+ */
 function getAppVersion(appName, withappstr, userAgent) {
-  //console.log(getAppVersion("Chrome"));
+  // console.log(getAppVersion("Chrome"));
   // const userAgent = navigator.userAgent;
   userAgent = userAgent || navigator.appVersion
   var reg = eval("/" + appName + "\\/([\\d\\.]+)/");
@@ -447,7 +477,13 @@ function getAppVersion(appName, withappstr, userAgent) {
   }
 }
 
-//版本号大小对比
+/**
+ * 版本号大小对比
+ * @param appName {String} app名称
+ * @param compareVer {String} 必传 需要对比的版本号
+ * @param userAgent {String} ua，可不传，默认取navigator.appVersion
+ * @return {Boolean/null} null/true/false
+ */
 function getIsAppVersionLastest(appName, compareVer, userAgent) {
   //console.log(getIsAppVersionLastest("Chrome","5.1"));
   userAgent = userAgent || navigator.appVersion
@@ -1585,6 +1621,7 @@ module.exports = {
   isDigitals: isDigitals,
 
   pattern: pattern,
+  getOsVersion: getOsVersion,
   getAppVersion: getAppVersion,
   getIsAppVersionLastest: getIsAppVersionLastest,
   getScrollPosition: getScrollPosition,
