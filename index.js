@@ -1312,10 +1312,46 @@ var debounce = function (fn, delay, immediate) {
 //   }
 // };
 
+/**
+ * textarea或input对象在指定的光标位置插入文字
+ * @param  {Object} obj dom对象
+ * @param  {String} str 要插入的文字
+ */
+var textareaInsertText = function (obj, str) {
+  if (document.selection) {
+    var sel = document.selection.createRange();
+    sel.text = str;
+  } else if (typeof obj.selectionStart === 'number' && typeof obj.selectionEnd === 'number') {
+    var startPos = obj.selectionStart,
+      endPos = obj.selectionEnd,
+      curPos = startPos,
+      tmpStr = obj.value;
+    obj.value = tmpStr.substring(0, startPos) + str + tmpStr.substring(endPos, tmpStr.length);
+    curPos += str.length;
+    setTimeout(() => {
+      obj.selectionStart = obj.selectionEnd = curPos;
+    }, 0);
+  } else {
+    obj.value += str;
+  }
+}
 
-
-
-
+/**
+ * textarea或input对象将光标定位到文字尾部
+ * @param  {Object} obj dom对象
+ */
+function textareaMoveToEnd(obj) {
+  obj.focus();
+  var len = obj.value.length;
+  if (document.selection) {
+    var sel = obj.createTextRange();
+    sel.moveStart('character', len);
+    sel.collapse();
+    sel.select();
+  } else if (typeof obj.selectionStart == 'number' && typeof obj.selectionEnd == 'number') {
+    obj.selectionStart = obj.selectionEnd = len;
+  }
+}
 
 
 
@@ -1670,6 +1706,8 @@ module.exports = {
   encodeUtf8: encodeUtf8,
   decodeUtf8: decodeUtf8,
   debounce: debounce,
-  throttle: throttle
+  throttle: throttle,
+  textareaInsertText: textareaInsertText,
+  textareaMoveToEnd: textareaMoveToEnd
 
 }
