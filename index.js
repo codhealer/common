@@ -1328,7 +1328,7 @@ var textareaInsertText = function (obj, str) {
       tmpStr = obj.value;
     obj.value = tmpStr.substring(0, startPos) + str + tmpStr.substring(endPos, tmpStr.length);
     curPos += str.length;
-    setTimeout(() => {
+    setTimeout(function() {
       obj.selectionStart = obj.selectionEnd = curPos;
     }, 0);
   } else {
