@@ -1,6 +1,6 @@
 {
   "name": "@saqqdy/common",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "一些常用的JS方法",
   "main": "lib/index.js",
   "directories": {
@@ -15,6 +15,20 @@
     "lib": "rm -rf src/**/tempCodeRunnerFile.js && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/**/*.js && npx babel src -d lib",
     "pub": "git add . && git commit -m 'fix bugs' && git pull && git push"
   },
+  "dependencies": {
+    "core-js": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@saqqdy/prettier-config": "^1.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "webpack-merge": "^4.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saqqdy/common.git"
@@ -28,17 +42,5 @@
   "bugs": {
     "url": "https://github.com/saqqdy/common/issues"
   },
-  "homepage": "https://github.com/saqqdy/common#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/polyfill": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@saqqdy/prettier-config": "^1.0.0",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "core-js": "^3.0.1",
-    "webpack-merge": "^4.2.1"
-  }
+  "homepage": "https://github.com/saqqdy/common#readme"
 }
