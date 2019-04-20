@@ -1,13 +1,18 @@
 {
-  "name": "sa-common",
-  "version": "1.0.54",
+  "name": "@saqqdy/common",
+  "version": "2.0.0",
   "description": "一些常用的JS方法",
-  "main": "index.min.js",
+  "main": "lib/index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "src": "src"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack --config webpack.dev.conf.js",
+    "build": "webpack --config webpack.prod.conf.js",
+    "es5": "npx babel src -d lib",
+    "lib": "rm -rf src/**/tempCodeRunnerFile.js && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/**/*.js && npx babel src -d lib",
+    "pub": "git add . && git commit -m 'fix bugs' && git pull && git push"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,27 @@
   "bugs": {
     "url": "https://github.com/saqqdy/common/issues"
   },
-  "homepage": "https://github.com/saqqdy/common#readme"
+  "homepage": "https://github.com/saqqdy/common#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@saqqdy/prettier-config": "^1.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.0.1",
+    "es6-promise": "^4.2.6",
+    "webpack-merge": "^4.2.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Android >= 5.0",
+    "Firefox >= 35",
+    "iOS 9"
+  ]
 }
