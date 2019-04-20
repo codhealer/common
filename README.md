@@ -36,8 +36,8 @@ require('@saqqdy/common')
 
 2. html静态页直接使用
 ```
-# 在你的html代码上加上script标签，使用CDN链接引入(稍后提供CDN地址)
-<script src="http://www.saqqdy.com"></script>
+# 在你的html代码上加上script标签，使用CDN链接引入
+<script src="http://cdn.saqqdy.com/common.min.js"></script>
 ```
 
 ### 所有方法汇总

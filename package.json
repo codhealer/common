@@ -12,7 +12,7 @@
     "build": "webpack --config webpack.prod.conf.js",
     "es5": "npx babel src -d lib",
     "lib": "rm -rf src/**/tempCodeRunnerFile.js && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/**/*.js && npx babel src -d lib",
-    "pub": "git add . && git commit -m 'fix bugs' && git pull && git push"
+    "pub": "git add . && git commit -m 'add cdn' && git pull && git push"
   },
   "repository": {
     "type": "git",
