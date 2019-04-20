@@ -82,17 +82,17 @@ module.exports = (env, argv) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
-              // presets: [
-              //   [
-              //     '@babel/env',
-              //     {
-              //       useBuiltIns: 'usage',
-              //       corejs: 3,
-              //       targets: '> 0.25%, not dead'
-              //     }
-              //   ]
-              // ],
+              // presets: ['@babel/preset-env'],
+              presets: [
+                [
+                  '@babel/env',
+                  {
+                    useBuiltIns: 'usage',
+                    corejs: 3,
+                    targets: "> 0.5%, not dead"
+                  }
+                ]
+              ],
               comments: false
             }
           }

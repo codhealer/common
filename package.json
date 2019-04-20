@@ -1,6 +1,6 @@
 {
   "name": "@saqqdy/common",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "一些常用的JS方法",
   "main": "lib/index.js",
   "directories": {
@@ -12,7 +12,8 @@
     "build": "webpack --config webpack.prod.conf.js",
     "es5": "npx babel src -d lib",
     "docs": "jsdoc2md src/**/*.js > API.md",
-    "lib": "rm -rf src/**/tempCodeRunnerFile.js && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/**/*.js && npx babel src -d lib",
+    "lib": "rm -rf src/**/tempCodeRunnerFile.js && rm -rf ./lib && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/modules/*.js && npx babel src/modules -d lib/modules",
+    "lib1": "rm -rf src/**/tempCodeRunnerFile.js && mkdir -p lib && cp -rf ./src/* lib && rm -rf lib/**/*.js && npx babel src -d lib",
     "pub": "git add . && git commit -m 'fix bugs' && git pull && git push"
   },
   "dependencies": {
