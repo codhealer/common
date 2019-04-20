@@ -372,7 +372,7 @@ base64解码
 
 | Param | Type | Description |
 | --- | --- | --- |
-| input | <code>String</code> | 需要解码的对象 |
+| input | <code>String</code> | 需要解码的字符串 |
 
 <a name="decodeUtf8"></a>
 
@@ -384,7 +384,7 @@ base64解码
 
 | Param | Type | Description |
 | --- | --- | --- |
-| input | <code>String</code> | 需要解码的对象 |
+| input | <code>String</code> | 需要解码的字符串 |
 
 <a name="delCookie"></a>
 
@@ -454,7 +454,7 @@ name=exMall-detail-goodsInfoId&params[goodsInfoId]=8866 转成 name*exMall-detai
 
 | Param | Type | Description |
 | --- | --- | --- |
-| input | <code>\*</code> | 需要编码的对象 |
+| input | <code>String</code> | 需要编码的字符串 |
 
 <a name="encodeUtf8"></a>
 
@@ -466,7 +466,7 @@ name=exMall-detail-goodsInfoId&params[goodsInfoId]=8866 转成 name*exMall-detai
 
 | Param | Type | Description |
 | --- | --- | --- |
-| input | <code>\*</code> | 需要编码的对象 |
+| input | <code>String</code> | 需要编码的字符串 |
 
 <a name="formatTime"></a>
 
