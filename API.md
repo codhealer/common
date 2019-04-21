@@ -10,6 +10,10 @@
 <dt><a href="#fixEvent">fixEvent(event)</a> ⇒ <code>Object</code></dt>
 <dd><p>为IE的事件对象添加一些“缺失的”函数</p>
 </dd>
+<dt><a href="#camel2Dash">camel2Dash(string)</a> ⇒ <code>String</code></dt>
+<dd><p>camel2Dash
+将驼峰字符串转成-间隔且全小写的Dash模式</p>
+</dd>
 <dt><a href="#clearAttr">clearAttr(string)</a> ⇒ <code>String</code></dt>
 <dd><p>去除HTML标签所有属性</p>
 </dd>
@@ -36,6 +40,10 @@
 </dd>
 <dt><a href="#cutCHSString">cutCHSString(str, len, hasDot)</a> ⇒ <code>String</code></dt>
 <dd><p>截取字符串，中文算2个字节</p>
+</dd>
+<dt><a href="#dash2Camel">dash2Camel(string)</a> ⇒ <code>String</code></dt>
+<dd><p>dash2Camel
+将-间隔且全小写的Dash模式转成驼峰字符串</p>
 </dd>
 <dt><a href="#deWxJumpLink">deWxJumpLink(string)</a> ⇒ <code>String</code></dt>
 <dd><p>用=替换<em> 用&amp;替换! 解码成微信跳转链接
@@ -219,6 +227,19 @@ handleEvent()执行事件
 | --- | --- | --- |
 | event | <code>String</code> | 事件类型 |
 
+<a name="camel2Dash"></a>
+
+## camel2Dash(string) ⇒ <code>String</code>
+camel2Dash
+将驼峰字符串转成-间隔且全小写的Dash模式
+
+**Kind**: global function  
+**Returns**: <code>String</code> - 返回转换后的字符串  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>String</code> | 需要转换的字符串 |
+
 <a name="clearAttr"></a>
 
 ## clearAttr(string) ⇒ <code>String</code>
@@ -322,6 +343,19 @@ client方法返回一个浏览器判断结果：{ ANDROID: true, GECKO: true, GL
 | str | <code>String</code> |  | 要截取的字符串 |
 | len | <code>Number</code> |  |  |
 | hasDot | <code>Boolean</code> | <code>false</code> |  |
+
+<a name="dash2Camel"></a>
+
+## dash2Camel(string) ⇒ <code>String</code>
+dash2Camel
+将-间隔且全小写的Dash模式转成驼峰字符串
+
+**Kind**: global function  
+**Returns**: <code>String</code> - 返回转换后的字符串  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>String</code> | 需要转换的字符串 |
 
 <a name="deWxJumpLink"></a>
 

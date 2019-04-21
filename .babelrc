@@ -12,7 +12,7 @@
         //   "ios": "9",
         //   "android": "5.0",
         //   "ie": "9",
-        //   "node": "8.0"
+        //   "node": "current"
         // },
         "corejs": 3,
         "targets": "> 0.5%, not dead"
