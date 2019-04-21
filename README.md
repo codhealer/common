@@ -58,6 +58,8 @@ clearHtmlTag, // 去除HTML标签及标签里面的文字
 getNumber, // 获取字符串中的数字
 imgAdapt, // 扩展图片自动适应多种分辨率small original
 imgChoose, // 扩展图片自动适应多种分辨率@2x @3x
+camel2Dash, // 将驼峰字符串转成-间隔且全小写的Dash模式
+dash2Camel, // 将-间隔且全小写的Dash模式转成驼峰字符串
 getRandomNum, // 获取随机整数
 getRandomStr, // 获取随机字符串
 getRandomStrWidthSpecialChar, // 获取随机字符串带特殊符号

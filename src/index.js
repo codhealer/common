@@ -3,6 +3,7 @@
  * @Date: 2019-04-08 20:35:04
  * @Last Modified by: saqqdy.com
  * @Last Modified time: 2019-04-08 20:35:04
+ * 正则：import [a-zA-Z0-9]{1,} from './modules/([a-zA-Z0-9]{1,})'
  */
 
 // 全局参数
